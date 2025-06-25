@@ -21,13 +21,6 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 # 7. Проверим:
 free -h
 
-# 8. Установи Docker (если ещё не установлен)
-sudo apt update
-sudo apt remove containerd docker.io -y
-curl -fsSL https://get.docker.com | sh
-sudo systemctl enable docker
-sudo systemctl start docker
-
 # 9. Скачай образ Ubuntu 24.04
 sudo usermod -aG docker $USER
 newgrp docker
