@@ -30,6 +30,10 @@ docker pull ubuntu:24.04
 
 # 11. Запусти контейнер в интерактивной tmux-сессии
 tmux new -s ubuntu24
+# 11.1 Если упала нода убиваем сессии докера в tmux
+docker stop ubuntu24
+docker rm ubuntu24
+# 11.2 Ставим заново
 docker run -it --name ubuntu24 --hostname ubuntu24 ubuntu:24.04 bash
 
 # 12. Настрой внутри контейнера (один раз)
@@ -53,6 +57,11 @@ Ctrl + B, потом D
 
 # 15. Вернуться в TMUX
 tmux attach -t ubuntu24
+
+# 15. Убить TMUX
+tmux kill-session -t ubuntu24
+
+
 
 
 
